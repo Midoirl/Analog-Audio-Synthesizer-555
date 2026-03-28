@@ -26,6 +26,9 @@ The low-frequency oscillator adds slight pitch variation (vibrato), which makes 
 
 # Signal flow
 
+![IMG_0035](https://github.com/user-attachments/assets/341e9a8f-0cce-421c-ac84-b83a90600f4a)
+
+
 
 # What’s really going on
 
@@ -88,12 +91,10 @@ A single RC stage barely changes the sound.
 
 With multiple stages:
 
-harmonics are reduced progressively
-waveform smoothing becomes noticeable
-the sound moves closer to a sinusoidal tone
+* harmonics are reduced progressively
+* waveform smoothing becomes noticeable
+* the sound moves closer to a sinusoidal tone
 
-Filtering made it smoother.
-Vibrato made it feel musical.
 
 # The math behind it
 ## Capacitor impedance
@@ -103,11 +104,12 @@ $$
 
 As frequency increases, the capacitor’s impedance decreases.
 
-That means high-frequency components see a very low-impedance path to ground and get shunted away, while lower-frequency components see a higher impedance and continue through the circuit.
+That means high-frequency harmonics see a very low-impedance path to ground and get shunted away, while lower-frequency haromonics see a higher impedance and continue through the circuit.
 
 In practice, this is exactly what creates the low-pass filtering effect
 
 ## RC low-pass behavior
+
 $$
 H(j\omega) = \frac{1}{1 + j\omega RC}
 $$
@@ -116,10 +118,11 @@ $$
 $$
 
 As 
-𝜔
-ω increases, the magnitude drops, meaning higher-frequency components are attenuated more strongly.
+𝜔 increases, the magnitude drops, meaning higher-frequency harmonics are reduced more strongly.
 
 ## Why the square wave sounds harsh
+ <img width="1362" height="464" alt="Figure 2" src="https://github.com/user-attachments/assets/0768b6aa-41b4-40c2-ad96-66168dedacd7" />
+
 $$
 x(t) = \frac{4}{\pi} \left( \sin(\omega t) + \frac{1}{3}\sin(3\omega t) + \frac{1}{5}\sin(5\omega t) + \cdots \right)
 $$
@@ -132,20 +135,31 @@ Once the filter attenuates them, the waveform is left mostly with the fundementa
 
 
 # Circuit schematic
+![IMG_0034 (1)](https://github.com/user-attachments/assets/500c5021-9c77-4f1c-a444-bbf0eea99e64)
+
+# Actual circuit build 
+This is the final working implementation of the synthesizer on a breadboard.
+
+![IMG_6445](https://github.com/user-attachments/assets/46d23d63-a21e-4637-93aa-e1b996c19123)
+
 
 # Signal before vs after filtering
+![IMG_6358](https://github.com/user-attachments/assets/0196eb79-f8bd-46ce-8350-82259da0cf7f)    
+![IMG_6359](https://github.com/user-attachments/assets/7c4acd7c-fc43-4382-84c6-bf25adc12eb3)
+
+
 
 
 # Demo 
-
-(Insert your edited video here)
+**Click here to watch the video demo**  
+[ Watch on Google Drive](https://drive.google.com/file/d/1LW7gsWnwFWx9_LARPqcvkmfKNqFoeRDa/view?usp=sharing)
 
 Includes:
 
-raw vs filtered sound
-pitch sweep
-filtering effect
-vibrato from the low-frequency oscillator
+* raw vs filtered sound
+* pitch sweep
+* filtering effect
+* vibrato from the low-frequency oscillator
 # Notes
 
 Small changes in resistor and capacitor values had a large impact on:
@@ -162,3 +176,6 @@ Most of the work was in tuning the circuit until the waveform sounded right, the
 * adjustable vibrato depth and rate
 * envelope shaping (ADSR)
 * PCB implementation
+
+## Author
+Mahmod Kirresh
