@@ -22,7 +22,7 @@ An analog synthesizer using:
 
 The main oscillator generates the tone.
 The filters reshape it.
-The low-frequency oscillator adds slight pitch variation (vibrato), which makes the sound feel more natural.
+The low-frequency oscillator adds slight pitch variation (vibrato), which makes the sound feel more musical.
 
 # Signal flow
 
@@ -104,7 +104,7 @@ $$
 
 As frequency increases, the capacitor’s impedance decreases.
 
-That means high-frequency harmonics see a very low-impedance path to ground and get shunted away, while lower-frequency haromonics see a higher impedance and continue through the circuit.
+That means high-frequency harmonics see a very low-impedance path to ground and get shunted away, while lower-frequency harmonics see a higher impedance and continue through the circuit.
 
 In practice, this is exactly what creates the low-pass filtering effect
 
