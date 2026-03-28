@@ -46,7 +46,7 @@ That small variation is what gives the sound a more musical, less static feel.
 
 # What actually mattered
 
-This ended up being mostly about tuning, not just building.
+This ended up being mostly about tuning.
 
 I kept adjusting resistor and capacitor values until the sound hit a balance:
 not too harsh, not too dull, and not too weak.
