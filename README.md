@@ -15,10 +15,10 @@ The goal was to see how waveform shape and modulation directly affect what we he
 
 An analog synthesizer using:
 
-1) A 555 timer as the main oscillator
-2) A second 555 timer as a low-frequency modulator (vibrato)
-3) cascaded RC low-pass filters
-4) An LM358 amplifier driving a speaker
+* A 555 timer as the main oscillator
+* A second 555 timer as a low-frequency modulator (vibrato)
+* cascaded RC low-pass filters
+* An LM358 amplifier driving a speaker
 
 The main oscillator generates the tone.
 The filters reshape it.
@@ -26,21 +26,16 @@ The low-frequency oscillator adds slight pitch variation (vibrato), which makes 
 
 # Signal flow
 
-Low-frequency oscillator (vibrato)
-→ Main oscillator (square wave)
-→ RC filter stages
-→ Amplifier
-→ Speaker
 
-# What’s going on
+# What’s really going on
 
 The main oscillator produces a square wave.
 
 A square wave isn’t a single frequency.
 It consists of:
 
-1) A fundamental frequency
-2) Multiple higher-frequency sine components
+* A fundamental frequency
+* Multiple higher-frequency sine components
 
 Those higher-frequency components are what make it sound harsh.
 
@@ -57,10 +52,11 @@ I kept adjusting resistor and capacitor values until the sound hit a balance:
 not too harsh, not too dull, and not too weak.
 
 Too little filtering → harsh, buzzy
+
 Too much filtering → muffled and low amplitude
 
-Then adding vibrato changed everything.
-Without it, the tone felt flat and artificial. With it, even a simple waveform started to feel more alive.
+Then adding vibrato elevated it a bit more.
+Without it, the tone felt flat and artificial.
 
 # Failure 1: no amplification
 
@@ -69,7 +65,7 @@ At first, I filtered the signal and sent it straight to the speaker.
 It didn’t work properly.
 Each filter stage reduced the signal, and the output was too weak to drive the speaker.
 
-Adding the LM358 amplifier fixed this and made the filtered signal usable.
+Adding the LM358 audio amplifier fixed this and made the filtered signal usable.
 
 # Failure 2: incorrect filter structure
 
@@ -77,14 +73,15 @@ In the first filter attempt, I connected the capacitor directly to ground withou
 
 Result:
 
-almost no meaningful filtering
-sound stayed harsh
+* almost no meaningful filtering
+* sound stayed harsh
 
 After adding a 1kΩ resistor before the capacitor, the filter started working as expected:
 
-high-frequency content dropped
-waveform smoothed
-sound changed clearly
+* high-frequency content dropped
+* waveform smoothed
+* sound changed clearly
+  
 # Why cascading stages mattered
 
 A single RC stage barely changes the sound.
@@ -130,7 +127,7 @@ $$
 A square wave is made up of a fundamental frequency plus multiple higher-frequency harmonics.
 
 Those higher harmonics are what give it that sharp, buzzy sound.
-Once the filter attenuates them, the waveform becomes smoother and the sound becomes more musical.
+Once the filter attenuates them, the waveform is left mostly with the fundemental which sounds smoother.
 
 
 
@@ -139,9 +136,6 @@ Once the filter attenuates them, the waveform becomes smoother and the sound bec
 # Signal before vs after filtering
 
 
-
-square wave: sharp transitions, high harmonic content
-filtered signal: smoother waveform, reduced high-frequency components
 # Demo 
 
 (Insert your edited video here)
@@ -156,15 +150,15 @@ vibrato from the low-frequency oscillator
 
 Small changes in resistor and capacitor values had a large impact on:
 
-sound harshness
-smoothness
-signal strength
-overall feel of the tone
+* sound harshness
+* smoothness
+* signal strength
+* overall feel of the tone
 
 Most of the work was in tuning the circuit until the waveform sounded right, then adding modulation to make it feel less static.
 
 # Future improvements
-active filters for sharper cutoff control
-adjustable vibrato depth and rate
-envelope shaping (ADSR)
-PCB implementation
+* active filters for sharper cutoff control
+* adjustable vibrato depth and rate
+* envelope shaping (ADSR)
+* PCB implementation
