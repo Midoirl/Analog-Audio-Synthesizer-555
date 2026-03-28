@@ -99,56 +99,40 @@ Filtering made it smoother.
 Vibrato made it feel musical.
 
 # The math behind it
-
-
-
-From AC circuit theory:
-
-𝑍
-𝐶
-=
-1
-𝑗
-𝜔
-𝐶
-Z
-C
-	​
-
-=
-jωC
-1
-	​
-
+## Capacitor impedance
+$$
+Z_C = \frac{1}{j\omega C}, \quad \omega = 2\pi f
+$$
 
 As frequency increases, the capacitor’s impedance decreases.
 
-So:
+That means high-frequency components see a very low-impedance path to ground and get shunted away, while lower-frequency components see a higher impedance and continue through the circuit.
 
-high-frequency signals see a low-impedance path to ground and are attenuated
-lower-frequency signals pass through with less attenuation
+In practice, this is exactly what creates the low-pass filtering effect
 
-Cutoff frequency:
+## RC low-pass behavior
+$$
+H(j\omega) = \frac{1}{1 + j\omega RC}
+$$
+$$
+|H(j\omega)| = \frac{1}{\sqrt{1 + (\omega RC)^2}}
+$$
 
-𝑓
-𝑐
-=
-1
-2
-𝜋
-𝑅
-𝐶
-f
-c
-	​
+As 
+𝜔
+ω increases, the magnitude drops, meaning higher-frequency components are attenuated more strongly.
 
-=
-2πRC
-1
-	​
+## Why the square wave sounds harsh
+$$
+x(t) = \frac{4}{\pi} \left( \sin(\omega t) + \frac{1}{3}\sin(3\omega t) + \frac{1}{5}\sin(5\omega t) + \cdots \right)
+$$
+
+A square wave is made up of a fundamental frequency plus multiple higher-frequency harmonics.
+
+Those higher harmonics are what give it that sharp, buzzy sound.
+Once the filter attenuates them, the waveform becomes smoother and the sound becomes more musical.
 
 
-Each RC stage contributes partial attenuation, and cascading them increases the overall effect.
 
 # Circuit schematic
 
