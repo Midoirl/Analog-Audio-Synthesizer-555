@@ -5,7 +5,7 @@ Analog audio synthesizer using 555 timers and cascaded RC filters to transform a
 
 I wanted to understand how musical sound is actually generated electrically, not just repeat theory.
 
-So instead of using pre-built modules or digital synthesis, I built a simple analog signal chain from scratch:
+So instead of using pre-built modules or digital synthesis, I built an analog signal chain from scratch:
 
 generate a waveform → shape it → modulate it → listen to it
 
@@ -15,14 +15,14 @@ The goal was to see how waveform shape and modulation directly affect what we he
 
 An analog synthesizer using:
 
-a 555 timer as the main oscillator
-a second 555 timer as a low-frequency modulator (vibrato)
-cascaded RC low-pass filters
-an LM358 amplifier driving a speaker
+1) a 555 timer as the main oscillator
+2) a second 555 timer as a low-frequency modulator (vibrato)
+3) cascaded RC low-pass filters
+4) an LM358 amplifier driving a speaker
 
 The main oscillator generates the tone.
 The filters reshape it.
-The low-frequency oscillator adds slight pitch variation (vibrato), which makes the sound feel much more natural.
+The low-frequency oscillator adds slight pitch variation (vibrato), which makes the sound feel more natural.
 
 # Signal flow
 
@@ -39,8 +39,8 @@ The main oscillator produces a square wave.
 A square wave isn’t a single frequency.
 It consists of:
 
-a fundamental frequency
-multiple higher-frequency sine components
+1) a fundamental frequency
+2) multiple higher-frequency sine components
 
 Those higher-frequency components are what make it sound harsh.
 
