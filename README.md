@@ -3,7 +3,7 @@ Analog audio synthesizer using 555 timers and cascaded RC filters to transform a
 
 # Why I built this
 
-I wanted to understand how musical sound is actually generated electrically, not just repeat theory.
+I wanted to understand how musical sound is actually generated electrically.
 
 So instead of using pre-built modules or digital synthesis, I built an analog signal chain from scratch:
 
